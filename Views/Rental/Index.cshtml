@@ -1,0 +1,44 @@
+﻿@model  IEnumerable<HouseRental.Models.Rental>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>House Rental</h1>
+
+<form>
+    Price: <input type="number" name="price" placeholder="Price below.."/>
+    Rental Duration: <input type="number" name="duration" placeholder="Rental duration below.."/>
+    Contract Type: <input type="text" name="contractType" />
+    Location<input type="text" name="location" />
+    Rating: <input type="number" name="rating" placeholder="Rating below.."/>
+    House Quality: <input type="text" name="quality" />
+
+    <input type="submit" value="Filter" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Price</th>
+            <th>Duration</th>
+            <th>Contract Type</th>
+            <th>Location</th>
+            <th>Rating</th>
+            <th>Quality</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>RM @item.Price</td>
+                <td>@item.Duration Months</td>
+                <td>@item.ContractType</td>
+                <td>@item.Location</td>
+                <td>@item.Rating / 5</td>
+                <td>@item.Quality</td>
+            </tr>
+        }
+    </tbody>
+</table>
